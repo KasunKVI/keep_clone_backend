@@ -14,7 +14,8 @@ router.post("/signUp", async (req, res) => {
     user = new User({
         name: req.body.name,
         email: req.body.email,
-        image: req.body.image
+        image: req.body.image,
+        userId: req.body.userId
     });
 
 
