@@ -28,6 +28,10 @@ const noteSchema = new mongoose.Schema({
         type: Date,
         required: false
     },
+    pinned: {
+        type: Boolean,
+        default: false
+    },
     createdAt: {
         type: Date,
         default: Date.now

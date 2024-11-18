@@ -15,6 +15,7 @@ router.post("/save", async (req, res) => {
         content: req.body.noteData.content,
         backgroundColor: req.body.noteData.backgroundColor,
         images: req.body.noteData.images,
+        pinned: req.body.noteData.pinned,
         reminder: req.body.noteData.reminder
     });
 
@@ -23,6 +24,29 @@ router.post("/save", async (req, res) => {
 
     console.log(note);
 
+});
+
+// Get all notes by userId
+router.get("/:userId", async (req, res) => {
+    console.log(req.params.userId);
+
+    const notes = await Note.find({ userId: req.params.userId });
+
+    //return selected data of the notes
+    const notices = notes.map((note) => {
+        return {
+            id: note._id,
+            title: note.title,
+            content: note.content,
+            backgroundColor: note.backgroundColor,
+            images: note.images,
+            pinned: note.pinned,
+            reminder: note.reminder,
+        }
+    });
+
+
+    res.status(200).json({ success: true, data: notices });
 });
 
 module.exports = router;
