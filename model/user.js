@@ -22,6 +22,11 @@ const userSchema = new mongoose.Schema({
         maxlength: 500,
         unique: true
     },
+    userId: {
+        type: String,
+        required: true,
+
+    },
 
     createdAt: { type: Date, default: Date.now },
 
