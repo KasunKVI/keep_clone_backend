@@ -3,6 +3,7 @@ const cors = require('cors');
 const express = require('express');
 const dotenv = require('dotenv');
 const auth = require('./controller/auth');
+const note = require('./controller/note');
 
 // Load environment variables
 dotenv.config();
@@ -32,3 +33,4 @@ app.listen(5000, () => {
 
 
 app.use('/api/v1/auth',auth)
+app.use('/api/v1/note',note)
