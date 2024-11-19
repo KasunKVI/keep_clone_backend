@@ -4,6 +4,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const auth = require('./controller/auth');
 const note = require('./controller/note');
+const taskList = require('./controller/taskList');
 
 // Load environment variables
 dotenv.config();
@@ -34,3 +35,4 @@ app.listen(5000, () => {
 
 app.use('/api/v1/auth',auth)
 app.use('/api/v1/note',note)
+app.use('/api/v1/task',taskList)
